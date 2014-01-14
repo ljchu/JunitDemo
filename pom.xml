@@ -1,0 +1,87 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.jango.ci</groupId>
+  <artifactId>JunitDemo</artifactId>
+  <version>0.0.1</version>
+  
+  <repositories>
+		<repository>
+			<id>repo1</id>
+			<name>repo1</name>
+			<url>http://repo1.maven.org/maven2</url>
+		</repository>
+		<repository>
+			<id>mvnsearch</id>
+			<name>mvnsearch Maven Repository</name>
+			<url>http://www.mvnsearch.org/maven2</url>
+		</repository>
+		<repository>
+			<id>ibiblio</id>
+			<name>ibiblio Maven Repository</name>
+			<url>http://www.ibiblio.org/maven2</url>
+		</repository>
+		<repository>
+			<id>mirrors.ibiblio</id>
+			<name>mirrors.ibiblio Maven Repository</name>
+			<url>http://mirrors.ibiblio.org/pub/mirrors/maven2</url>
+		</repository>
+		<repository>
+			<id>iflytek</id>
+			<name>iflytek</name>
+			<url>http://192.168.80.65:8081/nexus/content/groups/public/</url>
+		</repository>
+	</repositories>
+  
+  <dependencies>
+  	<dependency>
+  		<groupId>junit</groupId>
+  		<artifactId>junit</artifactId>
+  		<version>4.11</version>
+  		<scope>test</scope>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.apache.maven.plugins</groupId>
+  		<artifactId>maven-compiler-plugin</artifactId>
+  		<version>3.1</version>
+  		<type>maven-plugin</type>
+  	</dependency>
+  </dependencies>
+  <build>
+		<finalName>JunitDemo</finalName>
+		<defaultGoal>compile</defaultGoal>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>lib/</classpathPrefix>
+							<mainClass>com.jango.ci.junitdemo.JunitDemoMain</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+			<!-- 拷贝依赖的jar包到lib目录 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>
+								${project.build.directory}/lib
+							</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
