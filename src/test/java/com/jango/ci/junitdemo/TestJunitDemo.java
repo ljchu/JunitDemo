@@ -1,7 +1,6 @@
 package com.jango.ci.junitdemo;
 
 import static org.junit.Assert.*;
-
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -12,10 +11,12 @@ public class TestJunitDemo {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		System.out.println("Start testing.");
 	}
 
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
+		System.out.println("Finished testing.");
 	}
 
 	@Before
