@@ -49,7 +49,7 @@ public class TestJunitDemo {
 		JunitDemo junitDemo = new JunitDemo();
 		int a = 1,b=8;
 		boolean result = junitDemo.JunitDemoMethod1(a,b);
-		boolean exp = true;
+		boolean exp = false;
 		assertSame(exp, result);
 	}
 
