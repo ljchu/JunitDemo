@@ -34,5 +34,14 @@ public class TestJunitDemo {
 		boolean exp = true;
 		assertSame(exp, result);
 	}
+	
+	@Test
+	public void testJunitDemoMethod2(){
+		JunitDemo junitDemo = new JunitDemo();
+		int a = 1,b=11;
+		int result = junitDemo.JunitDemoMethod2(a,b);
+		int exp = 12;
+		assertSame(exp, result);
+	}
 
 }

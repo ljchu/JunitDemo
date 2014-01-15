@@ -11,4 +11,13 @@ public class JunitDemo {
 		
 	}
 
+	public int JunitDemoMethod2(int a, int b) {
+		return a+b;
+	}
+	
+	public void JunitDemoMethod3(int a) {
+		while (a>0) {
+			System.out.println("Dead loop.");
+		}
+	}
 }
