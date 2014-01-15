@@ -16,7 +16,10 @@ public class JunitDemo {
 	}
 	
 	public void JunitDemoMethod3(int a) {
-		while (a>0) {
+		if (a<10) {
+			System.out.println("a < 10");
+		}
+		while (a>10) {
 			System.out.println("Dead loop.");
 		}
 	}

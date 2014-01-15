@@ -38,6 +38,7 @@ public class TestJunitDemo {
 	
 	@Test
 	public void testJunitDemoMethod2(){
+		System.out.println("Test add.");
 		JunitDemo junitDemo = new JunitDemo();
 		int a = 1,b=11;
 		int result = junitDemo.JunitDemoMethod2(a,b);
@@ -61,5 +62,12 @@ public class TestJunitDemo {
 		boolean exp = false;
 		assertSame(exp, result);
 	}
-
+	
+	@Test
+	public void testJunitDemoMethod3(){
+		JunitDemo junitDemo = new JunitDemo();
+		int a = 5;
+		junitDemo.JunitDemoMethod3(a);
+		assertTrue(true);
+	}
 }
